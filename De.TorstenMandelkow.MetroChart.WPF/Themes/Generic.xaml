@@ -220,14 +220,14 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <!--<TextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=Value}" Style="{StaticResource NumberStyle}" VerticalAlignment="Bottom" Foreground="Black" HorizontalAlignment="Stretch"  />-->
-                        <local:AutoSizeTextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}"  Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+                        <!--<TextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=FormattedValueForChart}" Style="{StaticResource NumberStyle}" VerticalAlignment="Bottom" Foreground="Black" HorizontalAlignment="Stretch"  />-->
+                        <local:AutoSizeTextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}"  Text="{Binding Path=FormattedValueForChart}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
                         <Border Grid.Row="1" x:Name="Slice" Width="auto" Height="auto" MinWidth="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}" >
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
-                                <!--<TextBlock  x:Name="MainTextBlock" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=Value}" Foreground="White" Style="{StaticResource NumberStyle}" VerticalAlignment="Top" HorizontalAlignment="Stretch"  />-->
-                                <local:AutoSizeTextBlock x:Name="MainTextBlock" Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Stretch" />
+                                <!--<TextBlock  x:Name="MainTextBlock" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=FormattedValueForChart}" Foreground="White" Style="{StaticResource NumberStyle}" VerticalAlignment="Top" HorizontalAlignment="Stretch"  />-->
+                                <local:AutoSizeTextBlock x:Name="MainTextBlock" Text="{Binding Path=FormattedValueForChart}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Stretch" />
                             </Grid>
                         </Border>
                     </Grid>
@@ -275,7 +275,7 @@
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
-                                <local:AutoSizeTextBlock Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch" />
+                                <local:AutoSizeTextBlock Text="{Binding Path=FormattedValueForChart}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch" />
                             </Grid>
                         </Border>
                     </Grid>
@@ -622,10 +622,10 @@
                             <Grid>                               
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
-                                <local:AutoSizeTextBlock x:Name="MainTextBlock" Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Right" />
+                                <local:AutoSizeTextBlock x:Name="MainTextBlock" Text="{Binding Path=FormattedValueForChart}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Right" />
                             </Grid>
                         </Border>
-                        <local:AutoSizeTextBlock Grid.Column="1" Visibility="{Binding Path=IsWidthExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <local:AutoSizeTextBlock Grid.Column="1" Visibility="{Binding Path=IsWidthExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=FormattedValueForChart}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -671,7 +671,7 @@
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
-                                <TextBlock Foreground="White" Style="{StaticResource NumberStyle}" Text="{Binding Path=Value}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <TextBlock Foreground="White" Style="{StaticResource NumberStyle}" Text="{Binding Path=FormattedValueForChart}" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                         </Border>                        
                     </Grid>
@@ -1109,7 +1109,7 @@
                         <!--<local:PiePieceLabel x:Name="PART_Label" Value="{Binding Path=Value, RelativeSource={RelativeSource Mode=TemplatedParent}}" />-->
                         <!--<TextBlock x:Name="PART_Label" Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=Value}" />-->
                         <Border x:Name="PART_Label">
-                            <TextBlock Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=Value}" />
+                            <TextBlock Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=FormattedValueForChart}" />
                         </Border>                        
                     </Canvas>
                 </ControlTemplate>

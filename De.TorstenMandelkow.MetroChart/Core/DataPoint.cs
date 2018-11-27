@@ -22,6 +22,7 @@
     using System.Windows.Media;
     using System.Windows.Controls;
     using System.Windows;
+    using System.Globalization;
 #endif
 
     public class DataPoint : DependencyObject, INotifyPropertyChanged
@@ -316,6 +317,7 @@
         {
             RaisePropertyChangeEvent("Value");
             RaisePropertyChangeEvent("FormattedValue");
+            RaisePropertyChangeEvent("FormattedValueForChart");
             RaisePropertyChangeEvent("DisplayName");
         }               
 
@@ -388,6 +390,17 @@
                     return 0.0d;
                 }
                 return double.Parse(GetItemValue(_ReferencedObject, ValueMember).ToString());
+            }
+        }
+        public String FormattedValueForChart
+        {
+            get
+            {
+                if (_ReferencedObject == null)
+                {
+                    return String.Format(CultureInfo.CurrentCulture, "{0}", 0.0d);
+                }
+                return double.Parse(GetItemValue(_ReferencedObject, ValueMember).ToString()).ToString(CultureInfo.CurrentCulture);
             }
         }
 
